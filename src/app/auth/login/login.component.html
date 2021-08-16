@@ -1,0 +1,31 @@
+<section>
+    <div class="img-box">
+        <img src="../../../assets/img/img-login.jpg" alt="">
+    </div>
+    <div class="content-box">
+        <div class="form-box">
+            <h2>Iniciar Sesión</h2>
+            <form [formGroup]="form" (ngSubmit)="login()">
+                <div class="input-box">
+                    <span for="">Usuario</span>
+                    <input type="text" name="" id="" placeholder="Ingrese un usuario" formControlName="usuario"
+                        [ngClass]="{'is-invalid': submited && f.usuario.invalid}">
+                    <div *ngIf="submited && f.usuario.invalid" class="invalid-feedback">
+                        <div class="small" *ngIf="f.usuario.errors.required">* Este campo es requerido</div>
+                    </div>
+                </div>
+                <div class="input-box">
+                    <span for="">Contraseña</span>
+                    <input type="password" name="" id="" placeholder="Ingrese una contraseña" formControlName="pass"
+                        [ngClass]="{'is-invalid': submited && f.pass.invalid}">
+                    <div *ngIf="submited && f.pass.invalid" class="invalid-feedback">
+                        <div class="small" *ngIf="f.pass.errors.required">* Este campo es requerido</div>
+                    </div>
+                </div>
+                <div class="input-box">
+                    <button type="submit">Iniciar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

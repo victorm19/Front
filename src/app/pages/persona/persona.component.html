@@ -1,0 +1,95 @@
+<div class="container bg-light p-3">
+    <h1>Gestión de personas</h1>
+    <form class="row" [formGroup]="form" (ngSubmit)="guardar()">
+        <p class="fw-bold">Datos personales</p>
+        <div class="col-12 col-md-6">
+            <label for="nombre" class="form-label">
+                Nombre
+            </label>
+            <input type="text" class="form-control" id="nombre" name="nombre" formControlName="nombre"
+                [ngClass]="{'is-invalid': submited && f.nombre.invalid}">
+            <div *ngIf="submited && f.nombre.invalid" class="invalid-feedback">
+                <div class="small" *ngIf="f.nombre.errors.required">* Este campo es requerido</div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <label for="apellidos" class="form-label">
+                Apellidos
+            </label>
+            <input type="text" class="form-control" id="apellidos" name="apellidos" formControlName="apellidos"
+                [ngClass]="{'is-invalid': submited && f.apellidos.invalid}">
+            <div *ngIf="submited && f.apellidos.invalid" class="invalid-feedback">
+                <div class="small" *ngIf="f.apellidos.errors.required">* Este campo es requerido</div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <label for="numeroIdentificacion" class="form-label">
+                Numero identificación
+            </label>
+            <input type="text" class="form-control" id="numeroIdentificacion" name="numeroIdentificacion"
+                formControlName="numeroIdentificacion"
+                [ngClass]="{'is-invalid': submited && f.numeroIdentificacion.invalid}">
+            <div *ngIf="submited && f.numeroIdentificacion.invalid" class="invalid-feedback">
+                <div class="small" *ngIf="f.numeroIdentificacion.errors.required">* Este campo es requerido</div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <label for="email" class="form-label">
+                Email
+            </label>
+            <input type="text" class="form-control" id="email" name="email" formControlName="email"
+                [ngClass]="{'is-invalid': submited && f.email.invalid}">
+            <div *ngIf="submited && f.email.invalid" class="invalid-feedback">
+                <div class="small" *ngIf="f.email.errors.required">* Este campo es requerido</div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <label for="tipoIdentificacion" class="form-label">
+                Tipo identificación
+            </label>
+            <select name="tipoIdentificacion" id="tipoIdentificacion" class="form-control"
+                formControlName="tipoIdentificacion"
+                [ngClass]="{'is-invalid': submited && f.tipoIdentificacion.invalid}">
+                <option value="">Seleccione una opción</option>
+                <option value="{{item.nombre}}" *ngFor="let item of tiposIndentificacion">{{item.nombre}}</option>
+            </select>
+            <div *ngIf="submited && f.tipoIdentificacion.invalid" class="invalid-feedback">
+                <div class="small" *ngIf="f.tipoIdentificacion.errors.required">* Este campo es requerido</div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <label for="fechaCreacion" class="form-label">
+                Fecha Creación
+            </label>
+            <input type="date" class="form-control" id="fechaCreacion" name="fechaCreacion"
+                formControlName="fechaCreacion" [ngClass]="{'is-invalid': submited && f.fechaCreacion.invalid}">
+            <div *ngIf="submited && f.fechaCreacion.invalid" class="invalid-feedback">
+                <div class="small" *ngIf="f.fechaCreacion.errors.required">* Este campo es requerido</div>
+            </div>
+        </div>
+        <p class="fw-bold mt-3">Datos usuario</p>
+        <div class="col-12 col-md-6">
+            <label for="usuario" class="form-label">
+                Usuario
+            </label>
+            <input type="text" class="form-control" id="usuario" name="usuario" formControlName="usuario"
+                [ngClass]="{'is-invalid': submited && f.usuario.invalid}">
+            <div *ngIf="submited && f.usuario.invalid" class="invalid-feedback">
+                <div class="small" *ngIf="f.usuario.errors.required">* Este campo es requerido</div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <label for="pass" class="form-label">
+                Pass
+            </label>
+            <input type="password" class="form-control" id="pass" name="pass" formControlName="pass"
+                [ngClass]="{'is-invalid': submited && f.pass.invalid}">
+            <div *ngIf="submited && f.pass.invalid" class="invalid-feedback">
+                <div class="small" *ngIf="f.pass.errors.required">* Este campo es requerido</div>
+            </div>
+        </div>
+        <div class="col-12 d-flex flex-row-reverse">
+            <button type="submit" class="btn btn-primary mt-3">Guardar</button>
+        </div>
+    </form>
+</div>
